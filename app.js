@@ -37,11 +37,9 @@ app.post("/",function (req,res) {
     method: 'POST',
     auth: 'dharmik:33f0cf8df3630beb662065f4698513ad-us21'
   };
-  var error;
   const request = https.request(url,options,function (response) {
     response.on('data',function (data) {
-      //error = JSON.parse(data).errors.length;
-      //if(error!=0) console.log(JSON.parse(data).errors);
+      console.log(JSON.parse(data).errors);
     })
     if(response.statusCode === 200) res.sendFile(__dirname + "/success.html");
     else res.sendFile(__dirname+"/failure.html");
